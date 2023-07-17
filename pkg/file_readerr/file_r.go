@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"os"
 
+	"github.com/yousefzinsazk78/test_2_web_app/model/post"
 	"github.com/yousefzinsazk78/test_2_web_app/model/user"
 )
 
@@ -24,6 +25,20 @@ func WriteData(filename string, user user.User) error {
 	}
 	defer file.Close()
 	_, err = file.WriteString(user.String())
+	if err != nil {
+		return err
+	}
+	fmt.Println("write operation completed!")
+	return nil
+}
+
+func WriteDataBlog(filename string, postBlog post.Post) error {
+	file, err := os.OpenFile("./stored_file/"+filename+".txt", os.O_APPEND|os.O_CREATE, 0600)
+	if err != nil {
+		return err
+	}
+	defer file.Close()
+	_, err = file.WriteString(postBlog.String())
 	if err != nil {
 		return err
 	}

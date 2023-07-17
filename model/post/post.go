@@ -1,7 +1,12 @@
 package post
 
+import "fmt"
+
 type Post struct {
-	Id          int
 	Title       string
-	Description []byte
+	Description string
+}
+
+func (p Post) String() string {
+	return fmt.Sprintf("title: %s, description: %s\n", p.Title, p.Description)
 }

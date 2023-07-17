@@ -1,0 +1,9 @@
+
+
+body,html{
+    background-color: black;
+}
+
+ul#menu li {
+  display:inline;
+}
